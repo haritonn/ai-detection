@@ -2,7 +2,7 @@
 
 This project is an AI-powered application that checks text for the usage of AI (as funny as it may sound).
 
-![application](https://github.com/haritonn/ai-detection/assets/example_1.png)
+![application](https://raw.githubusercontent.com/haritonn/ai-detection/main/assets/example_1.png)
 
 Also implemented:
 + `Streamlit` interface (with model cache);
