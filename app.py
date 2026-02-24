@@ -1,6 +1,9 @@
 import streamlit as st
 import torch
 import torch.nn.functional as F
+import matplotlib.pyplot as plt
+
+plt.style.use("dark_background")
 
 LABEL_NAMES = {
     "LABEL_0": "Human",
@@ -67,5 +70,24 @@ if __name__ == "__main__":
             )
 
             st.subheader("Classes distribution")
-            for label, prob in sorted(results.items(), key=lambda x: -x[1]):
-                st.progress(prob, text=f"{label}: {prob:.2%}")
+            labels = list(results.keys())
+            probs = list(results.values())
+
+            fig, ax = plt.subplots(figsize=(6, 2))
+            bars = ax.bar(labels, probs)
+
+            for bar, prob in zip(bars, probs):
+                ax.text(
+                    bar.get_x() + bar.get_width() / 2,
+                    bar.get_height() + 0.02,
+                    f"{prob:.2%}",
+                    ha="center",
+                    fontsize=11,
+                )
+
+            ax.set_ylim(0, 1.15)
+            ax.spines[["top", "right"]].set_visible(False)
+
+            plt.tight_layout()
+            st.pyplot(fig)
+            plt.close(fig)

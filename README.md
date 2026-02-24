@@ -42,7 +42,7 @@ uv run streamlit run app.py
 ```
 
 ## Todo
-+ Find & fine-tune on better quality dataset;
-+ Add some plots to the `streamlit` interface;
-+ Add configuration file;
-+ ...
+- [ ] Find & fine-tune on better quality dataset;
+- [x] Add some plots to the `streamlit` interface;
+- [ ] Add configuration file;
+- [ ] ...
